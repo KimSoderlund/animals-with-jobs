@@ -1,6 +1,10 @@
-export interface Animal {}
-
-
-
-// - [ ] **1.** Analysera `data/data.json`  
-//        Skapa ett interface i `modules/IAnimal.ts` som representerar datan
+export interface Animal {
+    name: string;
+    kindOfAnimal: string;
+    job: string;
+    skills: string[];
+    birthYear: number | string;
+    imageUrl: string;
+    employmentStartDate: string | number;
+    employmentEndDate?: string | number;
+}
