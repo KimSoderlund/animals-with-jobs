@@ -22,18 +22,32 @@ export default function renderAnimalInfo(animal: Animal): void {
     const isEmployed = animal.employmentEndDate ? "Currently not employed" : "Currently employed";
     jobAndEmployment.textContent = `${animal.job} - ${isEmployed}`;
     jobAndEmployment.classList.add("standard-text");
+    jobAndEmployment.classList.add("job-text");
     animalInfoElement.appendChild(jobAndEmployment);
+
+    const ageContainer = document.createElement("div");
+    ageContainer.classList.add("age-container");
+
+    const ageTitle = document.createElement("p");
+    ageTitle.textContent = "Age:";
+    ageTitle.classList.add("faded-text");
+    ageContainer.appendChild(ageTitle);
 
     const age = document.createElement("p");
     const currentYear = new Date().getFullYear();
     const birthYear = Number(animal.birthYear);
     const currentAge = currentYear - birthYear;
-    age.textContent = `Age: ${currentAge} years old.`;
-    animalInfoElement.appendChild(age);
+    age.textContent = `${currentAge} years old.`;
+    age.classList.add("standard-text");
+    ageContainer.appendChild(age);
+
+    animalInfoElement.appendChild(ageContainer);
 
     const skills = document.createElement("div");
+    skills.classList.add("skills-container");
     const skillsTitle = document.createElement("p");
     skillsTitle.textContent = "Skills:";
+    skillsTitle.classList.add("faded-text");
     skills.appendChild(skillsTitle);
     
     const animalSkills = Array.isArray(animal.skills)
@@ -43,6 +57,7 @@ export default function renderAnimalInfo(animal: Animal): void {
     animalSkills.forEach((skill) => {
         const skillItem = document.createElement("p");
         skillItem.textContent = skill;
+        skillItem.classList.add("standard-text");
         skills.appendChild(skillItem);
     });
     animalInfoElement.appendChild(skills);
