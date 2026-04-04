@@ -1,20 +1,11 @@
-//Titta i index.html och hitta den UL där listan på djur ska skrivas ut.
-//Rendera ut en lista över djurens namn på skärmen
-//Varje list-item ska ha en event-lyssnare som kallar på "renderAnimalInfo"
-//Typa upp funktionens parameter
-import type { Animal } from "./IAnimal";
 import renderAnimalInfo from "./renderAnimalInfo";
-
-export default function renderListOfAnimals(animals: Animal[]): void {
+export default function renderListOfAnimals(animals) {
     const listElement = document.querySelector(".list-of-animals ul");
-
     if (!listElement) {
         console.error("No list element in DOM");
         return;
     }
-
     listElement.innerHTML = "";
-
     animals.forEach((animal) => {
         const listItem = document.createElement("li");
         listItem.textContent = animal.name;
