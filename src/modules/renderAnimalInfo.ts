@@ -1,30 +1,49 @@
-//Titta i index.html och hitta den div där info om varje djur ska skrivas ut.
-//Typa upp funktionens parameter
 const animalInfoElement = document.querySelector(".animal-info");
 import type { Animal } from "./IAnimal";
 
 export default function renderAnimalInfo(animal: Animal): void {
-  //=====================================================//
-  //Rendera ut bilden på djuret
-  //Skriv ut djurets namn och typ av djur. Följ det här formatet: "Gina the Giraffe"
-  //=====================================================//
+    if (!animalInfoElement) {
+        console.error("No animal info element in DOM");
+        return;
+    }
+
+    animalInfoElement.innerHTML = "";
+    const image = document.createElement("img");
+    image.src = `/images/${animal.imageUrl}`;
+    image.classList.add("animal-image");
+    animalInfoElement.appendChild(image);
   
-  //=====================================================//
-  //Skriv ut djurets jobb och om djuret är anställd just nu eller inte.
-  //Följ formatet: "Trash Analyst - Currently (not) employed"
-  //Använd template literals
-  //=====================================================//
-  //=====================================================//
-  //Skriv ut djurets ålder (age). EJ året de är födda. Utan hur gamla de är.
-  //Följ formatet:  Age: 9 years old.
-  //Använd template literals
-  //Bonus om du skriver ut rubriken "Age" med CSS.
-  //=====================================================//
-  //=====================================================//
-  //Skriv ut en lista på djurets färdigheter
-  //Följ formatet:    Skills:
-  //                  Flying
-  //                  Eating
-  //Bonus om du skriver ut rubriken "Skills" med CSS.
-  //=====================================================//
+    const nameAndType = document.createElement("h2");
+    nameAndType.textContent = `${animal.name} the ${animal.kindOfAnimal}`;
+    nameAndType.classList.add("animal-name-and-type");
+    animalInfoElement.appendChild(nameAndType);
+  
+    const jobAndEmployment = document.createElement("p");
+    const isEmployed = animal.employmentEndDate ? "Currently not employed" : "Currently employed";
+    jobAndEmployment.textContent = `${animal.job} - ${isEmployed}`;
+    jobAndEmployment.classList.add("standard-text");
+    animalInfoElement.appendChild(jobAndEmployment);
+
+    const age = document.createElement("p");
+    const currentYear = new Date().getFullYear();
+    const birthYear = Number(animal.birthYear);
+    const currentAge = currentYear - birthYear;
+    age.textContent = `Age: ${currentAge} years old.`;
+    animalInfoElement.appendChild(age);
+
+    const skills = document.createElement("div");
+    const skillsTitle = document.createElement("p");
+    skillsTitle.textContent = "Skills:";
+    skills.appendChild(skillsTitle);
+    
+    const animalSkills = Array.isArray(animal.skills)
+        ? animal.skills : animal.skills
+        ? [animal.skills] : [];
+
+    animalSkills.forEach((skill) => {
+        const skillItem = document.createElement("p");
+        skillItem.textContent = skill;
+        skills.appendChild(skillItem);
+    });
+    animalInfoElement.appendChild(skills);
 }

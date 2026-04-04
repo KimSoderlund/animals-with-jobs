@@ -1,4 +1,4 @@
-import renderAnimalInfo from "./renderAnimalInfo";
+import renderAnimalInfo from "./renderAnimalInfo.js";
 export default function renderListOfAnimals(animals) {
     const listElement = document.querySelector(".list-of-animals ul");
     if (!listElement) {
