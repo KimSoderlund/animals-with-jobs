@@ -6,7 +6,7 @@ export default function renderAnimalInfo(animal) {
     }
     animalInfoElement.innerHTML = "";
     const image = document.createElement("img");
-    image.src = `/images/${animal.imageUrl}`;
+    image.src = `./images/${animal.imageUrl}`;
     image.classList.add("animal-image");
     animalInfoElement.appendChild(image);
     const nameAndType = document.createElement("h2");

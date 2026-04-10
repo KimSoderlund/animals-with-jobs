@@ -9,7 +9,7 @@ export default function renderAnimalInfo(animal: Animal): void {
 
     animalInfoElement.innerHTML = "";
     const image = document.createElement("img");
-    image.src = `/images/${animal.imageUrl}`;
+    image.src = `./images/${animal.imageUrl}`;
     image.classList.add("animal-image");
     animalInfoElement.appendChild(image);
   
