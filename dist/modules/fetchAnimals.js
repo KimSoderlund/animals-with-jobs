@@ -1,6 +1,6 @@
 export default async function fetchAnimals() {
     try {
-        const response = await fetch('/data/data.json');
+        const response = await fetch('./data/data.json');
         if (!response.ok) {
             throw new Error('Could not fetch animals data');
         }
