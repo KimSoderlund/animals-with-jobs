@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+:root {
+    --animal-content-width: 420px;
+}
+
+body {
+    background-color: rgb(203, 229, 238);
+}
+
+
+.list-of-animals ul { 
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none; 
+    padding-top: 0.25em;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.animal-image {
+    margin-top: 3em;
+    width: var(--animal-content-width);
+    height: var(--animal-content-width);
+    object-fit: cover;
+    border:0.7em solid white;
+    border-radius: 50%;
+}
+
+.animal-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+
+.animal-name-and-type {
+    font-size: 2em;
+    color: rgba(0, 0, 0, 0.466);
+    justify-self: center;
+} 
+
+.standard-text {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: rgba(0, 0, 0);
+}
+
+.faded-text {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.466);
+}
+
+.job-text {
+    width: var(--animal-content-width);
+    align-self: center;
+}
+
+.age-container {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+    width: var(--animal-content-width);
+    align-self: center;
+}
+
+.skills-container {
+    width: var(--animal-content-width);
+    align-self: center;
+}

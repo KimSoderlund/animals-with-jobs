@@ -1,16 +1,11 @@
-import type { Animal } from "./IAnimal";
-import renderAnimalInfo from "./renderAnimalInfo.ts";
-
-export default function renderListOfAnimals(animals: Animal[]): void {
+import renderAnimalInfo from "./renderAnimalInfo.js";
+export default function renderListOfAnimals(animals) {
     const listElement = document.querySelector(".list-of-animals ul");
-
     if (!listElement) {
         console.error("No list element in DOM");
         return;
     }
-
     listElement.innerHTML = "";
-
     animals.forEach((animal) => {
         const listItem = document.createElement("li");
         listItem.textContent = animal.name;
